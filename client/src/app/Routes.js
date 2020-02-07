@@ -1,13 +1,20 @@
-import React from "react";
-import { Route } from "react-router-dom";
 import Home from "../components/Home";
+import CharacterForm from "../components/Character/CharacterForm";
+import ClassList from "../components/Classes/ClassList";
 
-const Routes = () => {
-  return (
-    <>
-      <Route path="/" exact component={Home} />
-    </>
-  );
-};
+const Routes = [
+  {
+    path: "/",
+    component: Home
+  },
+  {
+    path: "/createCharacter",
+    component: CharacterForm
+  },
+  {
+    path: "/selectClass",
+    component: ClassList
+  }
+];
 
 export default Routes;
