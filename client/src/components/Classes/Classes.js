@@ -1,25 +1,38 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const Classes = props => {
-  const { classes, select } = props;
+const CharactarClasses = props => {
+  const { classes, isFetching, error } = props.classes;
   console.log(classes);
+
   return (
-    <ul>
-      {classes.length
-        ? classes.map(item => (
-            <li
-              onClick={() => {
-                console.log(item);
-                select(item.name);
-              }}
-              key={item.index}
-            >
-              {item.name}
-            </li>
-          ))
-        : null}
-    </ul>
+    <>
+      {classes.length ? (
+        <>
+          <label htmlFor="characterClasses">Class:</label>
+          <select name="classes" id="charactarClasses">
+            {classes.map((e, index) => {
+              return (
+                <option key={index} value={e.name}>
+                  {e.index}
+                </option>
+              );
+            })}
+          </select>
+        </>
+      ) : null}
+    </>
   );
 };
 
-export default Classes;
+const mapDispatchToProps = dispatch => {
+  return {};
+};
+
+const mapsStateToProps = state => {
+  return {
+    classes: state.classes
+  };
+};
+
+export default connect(mapsStateToProps, mapDispatchToProps)(CharactarClasses);
