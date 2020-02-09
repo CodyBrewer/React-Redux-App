@@ -1,11 +1,14 @@
 import {
   FETCH_CLASSES,
   FETCH_CLASSES_SUCCESS,
-  FETCH_CLASSES_FAILURE
+  FETCH_CLASSES_FAILURE,
+  ON_INPUT_CHANGE
 } from "../actions/types";
 
 const initialState = {
   classes: [],
+  subClasses: [],
+  level: 1,
   isFetching: false,
   error: null
 };
@@ -26,6 +29,11 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         isFetching: false,
         error: payload
+      };
+    case ON_INPUT_CHANGE:
+      return {
+        ...state,
+        [payload.name]: payload.value
       };
     default:
       return state;
