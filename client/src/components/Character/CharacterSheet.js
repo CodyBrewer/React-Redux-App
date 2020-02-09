@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { changeInput } from "../../store/actions";
 import CharactarClasses from "../Classes/Classes";
+import Races from "../Races/Races";
+import Levels from "../Levels/Levels";
 
 const CharacterSheet = props => {
   const [newCharacter, setNewCharacter] = useState({ name: "" });
@@ -21,11 +23,9 @@ const CharacterSheet = props => {
           value={newCharacter.name}
           onChange={onChange}
         />
-        <label htmlFor="race">Race:</label>
-        <select name="race" id="race"></select>
+        <Races />
         <CharactarClasses />
-        <label htmlFor="level">Level:</label>
-        <select name="level" id="level"></select>
+        <Levels />
         <label htmlFor="subclass">Subclass:</label>
         <select name="subclass" id="subclass"></select>
       </form>
