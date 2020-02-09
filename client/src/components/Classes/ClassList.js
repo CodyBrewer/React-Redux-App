@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchClasses, selectClass } from "../../store/actions";
-import Classes from "./Classes";
+import Classes from "./CharactarClasses";
 
 const ClassList = props => {
   const { isFetching, fetch, classes, error, select } = props;

@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-// import reducers from ../store/reducers/
+// import reducers from "../store/reducers/";
 import classReducer from "../store/reducers/classReducer";
 import characterReducer from "../store/reducers/characterReducer";
 

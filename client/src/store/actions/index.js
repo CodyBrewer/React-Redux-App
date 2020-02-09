@@ -2,7 +2,9 @@ import {
   FETCH_CLASSES,
   FETCH_CLASSES_SUCCESS,
   FETCH_CLASSES_FAILURE,
-  SELECT_CLASS
+  SELECT_CLASS,
+  SUBMIT_INFO,
+  ON_INPUT_CHANGE
 } from "./types";
 
 const apiUrl = "https://www.dnd5eapi.co/api/";
@@ -27,4 +29,22 @@ export const selectClass = selectedClass => dispatch => {
     type: SELECT_CLASS,
     payload: selectedClass
   });
+};
+
+export const submitInfo = async characterInfo => dispatch => {
+  dispatch({
+    type: SUBMIT_INFO,
+    payload: characterInfo
+  });
+};
+
+export const changeInput = target => {
+  console.log(target);
+  return {
+    type: ON_INPUT_CHANGE,
+    payload: {
+      name: target.name,
+      value: target.value
+    }
+  };
 };
