@@ -1,9 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Routes from "./Routes";
-import CharacterSheet from "../components/Character/CharacterSheet";
 import Navigation from "../components/Navigation/Navigation";
-import CharactarClasses from "../components/Classes/Classes";
 
 import { fetchClasses, fetchRaces } from "../store/actions";
 import { connect } from "react-redux";

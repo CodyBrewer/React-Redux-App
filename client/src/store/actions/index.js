@@ -30,12 +30,23 @@ export const fetchRaces = () => dispatch => {
     });
 };
 
-export const selectClass = selectedClass => dispatch => {
-  console.log(selectedClass);
+export const fetchSubClasses = charactarClass => dispatch => {
+  console.log(`charactarClass`, charactarClass.toLowerCase());
   dispatch({
-    type: ACTION.SELECT_CLASS,
-    payload: selectedClass
+    type: ACTION.FETCH_SUBCLASSES
   });
+  fetch(`${apiUrl}classes/${charactarClass.toLowerCase()}`)
+    .then(res => res.json())
+    .then(res => {
+      console.log(res);
+      dispatch({
+        type: ACTION.FETCH_SUBCLASSES_SUCCESS,
+        payload: res.subclasses
+      });
+    })
+    .catch(err => {
+      dispatch({ type: ACTION.FETCH_CLASSES_FAILURE, payload: err.message });
+    });
 };
 
 export const submitInfo = async characterInfo => dispatch => {

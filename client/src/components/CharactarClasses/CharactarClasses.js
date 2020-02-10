@@ -1,16 +1,28 @@
 import React from "react";
 import { connect } from "react-redux";
+import { fetchSubClasses } from "../../store/actions";
 
 const CharactarClasses = props => {
   const { classes } = props.classes;
+  const { fetchSubClasses } = props;
   console.log(classes);
+
+  const charactarClassChange = e => {
+    console.log(e.target.value);
+    const charactarClass = e.target.value;
+    fetchSubClasses(charactarClass);
+  };
 
   return (
     <>
       {classes.length ? (
         <>
           <label htmlFor="characterClasses">Class:</label>
-          <select name="classes" id="charactarClasses">
+          <select
+            onChange={charactarClassChange}
+            name="classes"
+            id="charactarClasses"
+          >
             {classes.map((e, index) => {
               return (
                 <option key={index} value={e.name}>
@@ -26,7 +38,11 @@ const CharactarClasses = props => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    fetchSubClasses: charactarClass => {
+      dispatch(fetchSubClasses(charactarClass));
+    }
+  };
 };
 
 const mapsStateToProps = state => {

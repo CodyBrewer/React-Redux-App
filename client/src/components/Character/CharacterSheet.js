@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { changeInput } from "../../store/actions";
-import CharactarClasses from "../Classes/Classes";
+import CharactarClasses from "../CharactarClasses/CharactarClasses";
 import Races from "../Races/Races";
 import Levels from "../Levels/Levels";
 
@@ -14,7 +14,7 @@ const CharacterSheet = props => {
 
   return (
     <div className="">
-      <form className="border-solid border-4 border-black">
+      <form className="flex flex-col border-solid border-4 border-black">
         <label htmlFor="name">Name:</label>
         <input
           type="text"
@@ -26,8 +26,6 @@ const CharacterSheet = props => {
         <Races />
         <CharactarClasses />
         <Levels />
-        <label htmlFor="subclass">Subclass:</label>
-        <select name="subclass" id="subclass"></select>
       </form>
     </div>
   );
