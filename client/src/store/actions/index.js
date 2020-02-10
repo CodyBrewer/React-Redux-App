@@ -46,7 +46,7 @@ export const submitInfo = async characterInfo => dispatch => {
 };
 
 export const changeInput = target => {
-  console.log(target);
+  console.log(target.value);
   return {
     type: ACTION.ON_INPUT_CHANGE,
     payload: {
